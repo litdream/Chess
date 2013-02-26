@@ -1,0 +1,45 @@
+1
+1rr3k1/2q2pbp/1p1p2p1/n2Pp3/R1P1P3/2NQ2P1/5P1P/2R2BK1 b KQkq - 1 2
+* Fork
+<b>1...Nb3! 2.Rb1 Nc5</b> wins the exchange (i.e., a rook for a minor piece).
+
+2
+2rr2k1/1p1bppbp/pBqp1np1/4n3/N1P1P3/1P3P2/P1NQB1PP/2RR2K1 w KQkq - 1 2
+** Trapped piece, look for better move
+White could certainly pick up the exchange by 1. Bxd8.  But with so few open files, and with so many pieces on the board, the material imbalance might not be advantageous for quite some time.  Besides, White should first check whether there is an even better move, and indeed there is one:  <b>1.Nb4!</b> traps the black queen.  (1.Nd4 is also effective.)  Note that the desperate try 1...Nxe4 would be met by 2.Qe3.
+
+3
+2B1k2r/4bp1p/pq1p1p2/1pn1p3/4P3/2P1N3/PP1N1PPP/1K1R1R2 b KQkq - 1 2
+*** Deny enemy outposts
+There isn't a tactical shot, but there is a positional crisis.  Given the chance, White would play Nd5 and Bf5, when his finely placed pieces can stand up to Black's queen.  Black stops this plan by <b>1...Ne6!.</b>  Now <b>2.Nd5</b> runs into <b>2...Qc6 3.Bxe6 fxe6</b> driving the piece back.
+
+4
+8/8/8/7p/1k4p1/1P6/2K2P1P/8 w KQkq - 1 2
+*** Gain a crucial tempo
+White's plan is to abandon the b-pawn, and rush his king over to the kingside to eat Black's remaining pawns. He gains a precious tempo with this little finesse:  <b>1.Kb2!! Kb5  2.Kc3 Kc5 3.Kd3 Kb4 4.Ke4 Kxb3.</b>  The point is that the white king is on e4 rather than d3 when Black captures the b-pawn.  As it turns out, this one tempo makes the difference between a win and a draw.
+
+5
+1r3rk1/2q5/3p1pp1/n1pPp1n1/ppP1P3/1P4N1/P1BQ1PKR/7R w KQkq - 1 2
+** Remove the guard, skewer
+White wins heavy material by <b>1.Qxg5!</b>, removing the defender of h7:  <b> 1...fxg5 2.Rh8+ Kf7 3.R8h7+ Kg8 4.Rxc7.
+
+6 
+r3r1k1/1b3p1p/p2p1np1/1pqPp3/P1p1Pb2/2P2NNP/1PB1QPP1/RR4K1 w KQkq - 1 2
+* Blunder check
+The White knight on g3 is hanging (since the f2pawn is pinned).  Moving it away is best:  <b>1.Nf1</b>
+
+7
+1r6k/2p3pp/1p1p3r/1P1Qp3/P2bPpB1/3P2QP/5PP1/2R2RK1 b KQkq - 1 2
+** Deflection, mate
+After <b>1...f3!</b> (threatening mate and deflecting the defender of h3) <b>2.Bxf3 Rxh3,</b> White cannot prevent mate.
+
+8
+r1b2rk1/p1q1n1pp/3b1pn1/1Bp5/4P3/2N1BN1P/PPP2PP1/R2Q1RK1 w KQkq - 1 2
+** Clearance, fork
+<b>1.Bc4+</b> (clearing b5 for the knight) <b>1...Kh8 2.Nb5</b> scoops up the bishop on d6
+
+9
+2r3k1/2P2ppp/Q7/3ppq2/4n3/6P1/5P1P/2R2BK1 w KQkq - 1 2
+** Deflection, promotion
+<b>1.Qxc8+! Qxc8 2.Ba6!</b>  Black must give up his queen or allow the pawn to promote
+
