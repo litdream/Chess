@@ -5,6 +5,7 @@ import sys
 import pygame
 from pygame.locals import *
 from GameGraphic import *
+from ChessBoard import ChessBoard
 
 if __name__ == '__main__':
     datafile = sys.argv[1]
@@ -13,6 +14,7 @@ if __name__ == '__main__':
         sys.exit(1)
 
     pygame.init()
+    background = pygame.image.load("img/chess-board.png")
     fpsClock = pygame.time.Clock()
     surface = pygame.display.set_mode( BoardPixel )
     
@@ -21,7 +23,7 @@ if __name__ == '__main__':
         surface.fill(blackColor)
         problem.update()
 
-        surface.blit(surface, (0,0))
+        surface.blit(background, (0,0))
 
         for event in pygame.event.get():
             if event.type == QUIT:

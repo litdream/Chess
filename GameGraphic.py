@@ -1,5 +1,6 @@
 import pygame
 from pygame.locals import *
+from ChessBoard import ChessBoard
 
 redColor   = pygame.Color(255,0,0)
 greenColor = pygame.Color(0,255,0)
@@ -9,9 +10,44 @@ grayColor  = pygame.Color(180,180,180)
 blackColor = pygame.Color(0,0,0)
 
 BoardPixel = ( 20 + 8*60 + 20, 20 + 8*60 + 20)
+
 class Problem(object):
     def __init__(self, fen, surface):
         self.fen = fen
+        self.surface = surface
+        self.chess = ChessBoard()
+        self.chess.setFEN(fen)
+
+    def update(self):
+        x = y = 0
+        for (i,l) in enumerate(self.chess._board):
+            for (j,piece) in enumerate(l):
+
+                # location (j,i), draw piece
+                x = 20 + (j*60) + 5
+                y = 20 + (i*60) + 5
+                print piece, x, y
+
+                pieceImage = None
+                if piece == 'r': pieceImage = pygame.image.load("img/r.png")
+                if piece == 'n': pieceImage = pygame.image.load("img/n.png")
+                if piece == 'b': pieceImage = pygame.image.load("img/b.png")
+                if piece == 'q': pieceImage = pygame.image.load("img/q.png")
+                if piece == 'k': pieceImage = pygame.image.load("img/k.png")
+                if piece == 'p': pieceImage = pygame.image.load("img/p.png")
+                if piece == 'R': pieceImage = pygame.image.load("img/wr.png")
+                if piece == 'N': pieceImage = pygame.image.load("img/wn.png")
+                if piece == 'B': pieceImage = pygame.image.load("img/wb.png")
+                if piece == 'Q': pieceImage = pygame.image.load("img/wq.png")
+                if piece == 'K': pieceImage = pygame.image.load("img/wk.png")
+                if piece == 'P': pieceImage = pygame.image.load("img/wp.png")
+                
+                if pieceImage:
+                    self.surface.blit(pieceImage, (x,y))
+
+
+class RawBoardDrawing(object):
+    def __init__(self, surface):
         self.surface = surface
         
     def update(self):
@@ -29,3 +65,4 @@ class Problem(object):
         pygame.draw.rect(self.surface, blackColor, (0,0, 20,520))
         pygame.draw.rect(self.surface, blackColor, (520,520, 500,0))
         pygame.draw.rect(self.surface, blackColor, (520,520, 0,500))
+
