@@ -14,21 +14,22 @@ if __name__ == '__main__':
         sys.exit(1)
 
     pygame.init()
-    background = pygame.image.load("img/chess-board.png")
-    fpsClock = pygame.time.Clock()
-    surface = pygame.display.set_mode( BoardPixel )
-    
-    problem = Problem('r1b2rk1/p1q1n1pp/3b1pn1/1Bp5/4P3/2N1BN1P/PPP2PP1/R2Q1RK1 w KQkq - 1 2', surface)
-    while True:
-        surface.fill(blackColor)
-        problem.update()
+    problem = Problem('r1b2rk1/p1q1n1pp/3b1pn1/1Bp5/4P3/2N1BN1P/PPP2PP1/R2Q1RK1 w KQkq - 1 2')
 
-        surface.blit(background, (0,0))
+    fpsClock = pygame.time.Clock()
+    background = pygame.image.load("img/chess-board.png")
+    screen = pygame.display.set_mode( BoardPixel )
+    pygame.display.set_caption(problem.getTurn() + " To Move")
+    screen.blit(background.convert(), background.get_rect() )
+
+    while True:
+
+        problem.update()
 
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit(0)
 
-        pygame.display.update()
         fpsClock.tick(10)
+        pygame.display.update()
