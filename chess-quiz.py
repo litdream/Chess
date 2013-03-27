@@ -30,10 +30,14 @@ class QuestionSet(object):
         if   idx == 0:  self.parser = PractChessParser()
         elif idx == 1:  self.parser = BrilChkmateParser()
         elif idx == 2:  self.parser = WinningSacParser()
+        
+    def getQuiz(self, qno=None):
+        if qno:  self.qno = qno
+        return self.parser.getQuiz(self.qno)
 
     def getFen(self, qno=None):
-        if qno:  self.qno = qno
-        return self.parser.getFen(self.qno)
+        q = self.getQuiz(qno)
+        return q.fen
 
 class PractChessRec(object):
     def __init__(self, buf):
@@ -58,23 +62,23 @@ class PractChessParser(object):
             if buf:
                 self.questions.append(PractChessRec(buf))
 
-    def getFen(self, qno):
+    def getQuiz(self, qno):
         rtn = None
         if qno:
             for q in self.questions:
-                if q.num == qno: 
-                    rtn = q.fen
+                if q.num == qno:
+                    rtn = q
                     break
         else:
             random.shuffle(self.questions)
-            rtn = self.questions[0].fen
+            rtn = self.questions[0]
 
         if not rtn:
             print "Problem(", qno, ") not found."
             sys.exit(1)
         return rtn
 
-
+        
 class BrilChkmateParser(object):
     pass
 
@@ -111,7 +115,8 @@ def main():
     # TODO: Refactor as display
 
     pygame.init()
-    fen = questionSet.getFen(qnum)
+    quiz = questionSet.getQuiz(qnum)
+    fen = quiz.fen
     print "\n%s\n" % fen
 
     problem = Problem(fen)
@@ -119,7 +124,7 @@ def main():
     fpsClock = pygame.time.Clock()
     background = pygame.image.load("img/chess-board.png")
     screen = pygame.display.set_mode( BoardPixel )
-    pygame.display.set_caption(problem.getTurn() + " To Move")
+    pygame.display.set_caption("(" + str(quiz.num) + ") " + problem.getTurn() + " To Move")
     screen.blit(background.convert(), background.get_rect() )
 
     while True:
