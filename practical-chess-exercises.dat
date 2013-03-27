@@ -43,3 +43,39 @@ r1b2rk1/p1q1n1pp/3b1pn1/1Bp5/4P3/2N1BN1P/PPP2PP1/R2Q1RK1 w KQkq - 1 2
 ** Deflection, promotion
 <b>1.Qxc8+! Qxc8 2.Ba6!</b>  Black must give up his queen or allow the pawn to promote
 
+
+15
+rn1qk2r/pbp2pp1/1p1ppn1p/8/1bPPP3/2NB4/PPQ1NPPP/R1B1K2R w KQkq - 1 2
+* Fork, pin
+<b>1.Qa4+</b> wins a piece, as <b>1...Nc56</b> is met by 2.d5
+
+
+19 
+1q4k1/p5pp/4pn1r/2Q1Np2/3P4/PP6/5PPP/2R3K1 w KQkq - 1 2
+* Black rank weakness
+<b>1.Qc8+ Qxc8</b> [1...Ne8 2.Qxb8] <b>2.Rxc8+ Ne8 3.Rxe8</b> mate
+
+
+21
+r5k1/2pqn1pp/p4r2/1pnp4/8/2P2PN1/PPB2P1P/R2QR1K1 w KQkq - 1 2
+* Overworked piece, double attack
+<b>1.Rxe7!</b> wins a piece, as after <b>1...Qxe7 2.Qxd5+</b> White snags the d-pawn and the loose rook on a8.
+
+
+26
+2kr1r2/pqp3pp/1pb1p1n1/4p3/8/Q1P1B1P1/PP2BP1P/R3R1K1/ b KQkq - 1 2
+* Prevent deadly pin
+Black's first order of business is to prevent Ba6, losing his queen.  Thus <b>1...Kb8</b>
+
+
+29 
+4r1k1/3b1p2/1pp2n1p/3p2p1/Nb1N4/6B1/PPP2PPP/R5K1 b KQkq - 1 2
+* Discovered attack
+<b>1...c5</b> picks up one of the loose White knights.
+
+
+36
+r1bqkbnr/pp1pp2p/2n2pp1/8/4P3/3BQN2/PPP2PPP/RNB1K2R/ b KQkq - 1 2
+* Skewer
+<b>1...Bh6!</b> skewers the White queen to the undefended bishop on c1.
+
