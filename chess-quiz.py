@@ -8,6 +8,7 @@ from getopt import gnu_getopt
 from pygame.locals import *
 from GameGraphic import *
 from ChessBoard import ChessBoard
+import pgn
 
 USAGE = '''\
 USAGE: %s [options] [QUIZ_NUMBER]
@@ -36,14 +37,24 @@ class QuestionSet(object):
     def getQuiz(self, qno=None):
         if qno: 
             self.qno = qno
-            if type(self.parser) is PractChessParser:
+            #
+            # dirty way of delicating int/string key.
+            # Eh~ I don't care subclass spits exception.
+            #
+            try:
                 self.qno = int(self.qno)
+            except:
+                pass
         return self.parser.getQuiz(self.qno)
 
     def getFen(self, qno=None):
         q = self.getQuiz(qno)
         return q.fen
 
+#
+# TODO:
+#  Refactor these same records.
+#
 class PractChessRec(object):
     def __init__(self, buf):
         self.num = int(buf[0])
@@ -57,6 +68,14 @@ class ChessComRec(object):
         self.fen = buf[1]
         self.title = buf[2]
         self.text = buf[3]
+
+class PgnRec(object):
+    def __init__(self, buf):
+        self.num = int(buf[0])
+        self.fen = buf[1]
+        self.title = buf[2]
+        self.text = buf[3]
+
 
 class PractChessParser(object):
     def __init__(self):
@@ -93,7 +112,7 @@ class PractChessParser(object):
             print "Problem(", qno, ") not found."
             sys.exit(1)
         return rtn
-
+    
 
 class ChessComParser(PractChessParser):
     def __init__(self):
@@ -103,19 +122,36 @@ class ChessComParser(PractChessParser):
         
 
 class BrilChkmateParser(object):
-    pass
+    def __init__(self):
+        self.filename = "1001bwtc.pgn"
+        self._load_quiz()
 
-class WinningSacParser(object):
-    pass
+    def _load_quiz(self):
+        with open(self.filename) as fh:
+            self.questions = pgn.loads(fh.read())
+        
+    def getQuiz(self, qno):
+        idx = qno
+        if not idx:
+            idx = random.randint(0, len(self.questions))
+        quiz = self.questions[idx]
+        
+        buf = [ idx, quiz.fen, self.filename, "" ]
+        return PgnRec(buf)
 
+
+class WinningSacParser(BrilChkmateParser):
+    def __init__(self):
+        self.filename = "1001wcsc.pgn"
+        self._load_quiz()
 
 
 def usage():
     print USAGE % sys.argv[0]
     
 def main():
-    sa = 'hpc'
-    la = ('help', 'pract-chess', 'chess-com' )
+    sa = 'hpcbw'
+    la = ('help', 'pract-chess', 'chess-com', 'bril-chkmate', 'winning-sac' )
     o,arg = gnu_getopt(sys.argv[1:], sa, la)
 
     quizset = ('pract', 'chesscom', 'bril', 'winning')
