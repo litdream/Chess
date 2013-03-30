@@ -59,7 +59,6 @@ class ChessPiece(pygame.sprite.Sprite):
         self.image = pieceImage
         self.image.set_colorkey( self.image.get_at((0,0)) )
         self.topleft = loc
-        print self.topleft
 
     def draw(self):
         surface = pygame.display.get_surface()

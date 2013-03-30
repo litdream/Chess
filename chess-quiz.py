@@ -15,6 +15,7 @@ USAGE: %s [options] [QUIZ_NUMBER]
 options:
   -h, --help            Help screen
   -p, --pract-chess     Practical Chess Quiz
+  -c, --chess-com       Chess.com quiz
   -b, --bril-chkmate    1001 Brilliant way to Checkmate
   -w, --winning-sac     1001 Winning Sacrifice
 
@@ -28,11 +29,15 @@ class QuestionSet(object):
         self.qno = qno
         self.parser = None
         if   idx == 0:  self.parser = PractChessParser()
-        elif idx == 1:  self.parser = BrilChkmateParser()
-        elif idx == 2:  self.parser = WinningSacParser()
+        elif idx == 1:  self.parser = ChessComParser()
+        elif idx == 2:  self.parser = BrilChkmateParser()
+        elif idx == 3:  self.parser = WinningSacParser()
         
     def getQuiz(self, qno=None):
-        if qno:  self.qno = qno
+        if qno: 
+            self.qno = qno
+            if type(self.parser) is PractChessParser:
+                self.qno = int(self.qno)
         return self.parser.getQuiz(self.qno)
 
     def getFen(self, qno=None):
@@ -46,9 +51,20 @@ class PractChessRec(object):
         self.title = buf[2]
         self.text = buf[3]
 
+class ChessComRec(object):
+    def __init__(self, buf):
+        self.num = buf[0]
+        self.fen = buf[1]
+        self.title = buf[2]
+        self.text = buf[3]
+
 class PractChessParser(object):
     def __init__(self):
         self.filename = 'practical-chess-exercises.dat'
+        self.rec = PractChessRec
+        self._load_quiz()
+        
+    def _load_quiz(self):
         self.questions = []
         with open(self.filename) as fh:
             buf = []
@@ -57,10 +73,10 @@ class PractChessParser(object):
                 if len(l):  
                     buf.append(l)
                 else:
-                    if buf: self.questions.append( PractChessRec(buf))
+                    if buf: self.questions.append( self.rec(buf))
                     buf = []
             if buf:
-                self.questions.append(PractChessRec(buf))
+                self.questions.append(self.rec(buf))
 
     def getQuiz(self, qno):
         rtn = None
@@ -78,7 +94,14 @@ class PractChessParser(object):
             sys.exit(1)
         return rtn
 
+
+class ChessComParser(PractChessParser):
+    def __init__(self):
+        self.filename = 'chess-com-quiz.dat'
+        self.rec = ChessComRec
+        self._load_quiz()
         
+
 class BrilChkmateParser(object):
     pass
 
@@ -91,21 +114,22 @@ def usage():
     print USAGE % sys.argv[0]
     
 def main():
-    sa = 'hp'
-    la = ('help', 'pract-chess' )
+    sa = 'hpc'
+    la = ('help', 'pract-chess', 'chess-com' )
     o,arg = gnu_getopt(sys.argv[1:], sa, la)
 
-    quizset = ('pract', 'bril', 'winning')
+    quizset = ('pract', 'chesscom', 'bril', 'winning')
     bookidx = None
     for k,v in o:
         if   k in ('-h', '--help'):  usage(); sys.exit(0)
         elif k in ('-p', '--pract-chess'): bookidx = 0
-        elif k in ('-b', '--bril-chkmate'): bookidx = 1
-        elif k in ('-w', '--winning-sac'): bookidx = 2
+        elif k in ('-c', '--chess-com'):  bookidx = 1
+        elif k in ('-b', '--bril-chkmate'): bookidx = 2
+        elif k in ('-w', '--winning-sac'): bookidx = 3
     
     qnum = None
     try:
-        qnum = int(arg[0])
+        qnum = arg[0]
     except IndexError:
         pass
 
@@ -128,13 +152,16 @@ def main():
     screen.blit(background.convert(), background.get_rect() )
 
     while True:
-
         problem.update()
 
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit(0)
+            if event.type == KEYUP or event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                    pygame.quit()
+                    sys.exit(0)
 
         fpsClock.tick(10)
         pygame.display.update()
