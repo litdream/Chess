@@ -99,4 +99,77 @@ r1br2k1/1p2pp1p/1pp3pB/4q3/PP1nP3/6PP/1Q3PB1/R4R1K b - - 0 1
 * Double attack
 <b>1...Bxh3! 2.Bxh3 Qh5.</b>  Black regains the piece and emerges an additional pawn ahead.
 
+55
+6k1/5p1p/6p1/2r5/3R4/P6P/5PP1/6K1 w - - 0 1
+* Rook behind passed pawn
+Rooks generally belong behind passed pawns, and that is the case here:  <b>1. Rd1!</b> followed by <b>2.Ra1</b> gives White the best winning chances.
 
+57
+r1bqk2r/pppnppbp/2np2p1/8/Q1P1P3/2NB4/PP1PNPPP/R1B2RK1 b - - 0 1
+* Fork
+Black picks up the vulnerable d3 bishop by <b> 1...Nc5 2.Qc2 Nb4.</b>
+
+58 
+1r2k2r/2p1ppb1/p1pp2bp/6p1/3PP1q1/1PN2N2/P1P2P2/R1BQRK2 b - - 0 1
+* Pin
+<b> 1...Qh3+! 2.Ke2</b> [or 2.Kg1 g4] <b> 2...g4</b>.  Black wins back a piece (as the c3 knight is unprotected and continues the onslaught.
+
+65
+3r2k1/pp4bp/2ppq1p1/5b2/1PP5/P2P2PP/3QNPB1/2R3K1 w - - 0 1
+* Trapped piece
+<b> 1. g4!</b> traps a bishop.
+
+66
+4rk2/1b2rpp1/pn1b1n1p/3pNP2/2pP2P1/2P2NBP/P1B1R3/4RK2 w - - 0 1
+* Discovered attack, fork, pin
+White wins at least the exchange after <b> 1.Ng6+! fxg6 2.Bxd6</b> due to the resulting pin.
+
+79
+rnbqk2r/ppp2ppp/5n2/3Pp3/1b2P3/2N5/PP3PPP/R1BQKBNR w - - 0 1
+* Double attack
+<b>1.Qa4+</b> wins a piece
+
+86
+1rbqk2r/p3bppp/2n1p3/3pPn2/R1pP1P2/1PP2N2/3NB1PP/2BQ1RK1 b - - 0 1
+* Fork
+<b>1...Ne3!</b> wins the exchange
+
+87
+r4rk1/pbpq1ppp/1pnb1n2/3p4/QP1P4/P2BPN2/3N1PPP/R1B2RK1 b - - 0 1
+* Discovered attack
+<b> 1...Nxd4!</b> nets a pawn after <b>2.Qxd7</b> [or 2.Qd1 Nxf3+ 3.Nxf3] <b>2...Nxf3+ 3.Nxf3 Nxd7</b>
+
+90
+rn2kb1r/pb3ppp/1pp1pq2/8/3P4/3B1N2/PPP2PPP/R1BQK2R w - - 0 1
+* Trapped Piece
+<b>1.Bg5!</b> traps the black queen.
+
+93
+r2qk1nr/pp3pbp/3pp1p1/8/3nPP2/2NBBP2/PPP4P/R2QK2R w - - 0 1
+* Discovered attack
+<b>1.Bxd4 Bxd4 2.Bb5+ wins a piece
+
+94
+2r2rk1/6bp/3p2p1/1p1P1p2/4p3/1P2P3/P1B3PP/2R2RK1 b - - 0 1
+* Pin, remove the guard, overworked piece
+Black wins a piece by hitting the defender of the c2 bishop: <b>1...Bb2! 2.Rb1 Rxc2</b>.  Also good is  1...Bh6 2.Rfe1 Rc3 3.Kf2 Rfc8 4.Re2 (this rook is now overworked) 4...Bxe3+ 5.Rxe3 Rxc2+ 6.Rxc2 Rxc2+ 7.Re2 [7.Kg3 Rxa2 8.Rc3 Rd2] 7...Rxe2+ 8.Kxe2 b4 with a straightforward win.
+
+97
+1rb2rk1/p1q1ppbp/n2p3B/3n1P2/1ppP4/3B1N2/PPPQN1PP/K2R3R w - - 0 1
+* An Overriding factor
+Don't worry about the attacked piece.  <b> 1.Qg5!</b> and it's mate next move.
+
+102
+8/8/8/8/4p1K1/2k1P3/8/8 b - - 0 1
+* Le Trebuchet
+<b>1...Kd2! 2.Kf4 Kd3!</b> White must surrender his pawn and the game.
+
+109 
+3q1rk1/5pbp/2p1p3/2Pp1p2/1P6/3bPN2/r2N1PPP/2RQR1K1 w - - 0 1
+* Double attack
+<b>1.Qb3</b> attacks the loose bishop and rook.  White is up by the exchange following <b>1... Rxd2 2.Nxd2.</b>
+
+113
+1r3rk1/p1p1qpp1/2p3p1/4p3/4P1P1/1PnPN2P/P1P2QK1/R4R2 w - - 0 1
+* Restrict enemy piece
+After <b>1.a4!</b> the Black knight has no safe moves. White will proceed to harass the knight and Black's weak pawns, while his own knight has a fine post at c4.
