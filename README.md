@@ -1,4 +1,6 @@
 -------------------------------------------------------------------------------
+![Alt text](/img/sample-capture.jpg?raw=true "Sample screenshot")
+
 USAGE:
 $ ./chess-quiz.py -p 1     # Quiz number 1 in practical-chess-exercises.dat
 
